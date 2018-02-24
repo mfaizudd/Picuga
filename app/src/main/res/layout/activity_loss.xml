@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.example.bandeng.picuga.LevelCompleteActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textSize="34sp"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/app_name"
+        android:textAllCaps="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-light"
+        android:text="Kalah!"
+        android:textAllCaps="true"/>
+
+    <TextView
+        android:id="@+id/score_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="34sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-light"
+        android:text="Score mu saat ini: 0"
+        android:textAllCaps="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:layout_height="0dp">
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="100dp"
+            android:layout_height="29dp"
+            android:background="@drawable/button_custom"
+            android:text="Kembali"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-light"
+            android:layout_margin="16dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

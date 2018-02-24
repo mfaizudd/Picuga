@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Picuga</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="marginButtonLevel">8dp</string>
+    <string name="puzzle_piece">puzzle piece</string>
+</resources>
