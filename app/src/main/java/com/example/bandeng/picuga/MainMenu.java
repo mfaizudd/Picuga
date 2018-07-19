@@ -29,7 +29,7 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gf.playBubble();
-                startActivity(new Intent(MainMenu.this, Difficulty.class));
+                startActivity(new Intent(MainMenu.this, SelectLevel.class));
             }
         });
 

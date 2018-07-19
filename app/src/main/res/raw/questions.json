@@ -1,0 +1,43 @@
+{
+  "quiz": [
+    {
+      "level": 1,
+      "questions": [
+        {
+          "content": "Apa ini?",
+          "answers": [
+            "Reog",
+            "Burung"
+          ],
+          "answer": "Reog"
+        },
+        {
+          "content": "Nomor 2",
+          "answers": [
+            "a","be"
+          ],
+          "answer":"a"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "questions": [
+        {
+          "content": "Reog ponorogo",
+          "answers": [
+            "",""
+          ],
+          "answer":""
+        },
+        {
+          "content": "weew",
+          "answers": [
+            "",""
+          ],
+          "answer":""
+        }
+      ]
+    }
+  ]
+}

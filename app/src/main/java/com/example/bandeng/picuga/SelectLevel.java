@@ -25,13 +25,15 @@ public class SelectLevel extends AppCompatActivity {
         gamePreferences = getSharedPreferences("com.example.bandeng.picuga", MODE_PRIVATE);
 
         Button buttonBack = findViewById(R.id.button_back);
-        Button buttonOne = findViewById(R.id.button_1);
+        final Button buttonOne = findViewById(R.id.button_1);
 
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gf.playBubble();
-                startActivity(new Intent(SelectLevel.this, LocationActivity.class));
+                Intent intent = new Intent(SelectLevel.this, Game.class);
+                intent.putExtra("level", Integer.parseInt(buttonOne.getText().toString())-1);
+                startActivity(intent);
             }
         });
 
