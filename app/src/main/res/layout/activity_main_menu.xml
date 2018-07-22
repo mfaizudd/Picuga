@@ -18,7 +18,7 @@
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="56dp" />
+        android:textSize="56sp" />
 
     <TextView
         android:layout_width="match_parent"

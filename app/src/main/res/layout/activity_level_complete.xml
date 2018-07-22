@@ -40,6 +40,7 @@
         android:textAllCaps="true"/>
 
     <TextView
+        android:id="@+id/level_name_complete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
@@ -51,6 +52,7 @@
         android:textAllCaps="true"/>
 
     <ImageView
+        android:id="@+id/level_complete_puzzle_preview"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_margin="16dp"

@@ -2,41 +2,193 @@
   "quiz": [
     {
       "level": 1,
+      "name": "Reog Ponorogo",
+      "status": "playable",
       "questions": [
         {
-          "content": "Apa ini?",
+          "content": "Reog adalah salah satu kesenian budaya yang berasal dari...",
           "answers": [
-            "Reog",
-            "Burung"
+            "Jawa Timur",
+            "Jawa Tengah"
           ],
-          "answer": "Reog"
+          "answer": "Jawa Timur"
         },
         {
-          "content": "Nomor 2",
+          "content": "Kota mana yang dianggap sebagai kota asal Reog?",
           "answers": [
-            "a","be"
+            "Semarang","Ponorogo"
           ],
-          "answer":"a"
+          "answer":"Ponorogo"
+        },
+        {
+          "content": "Prajurit berkuda dan merupakan salah satu tokoh dalam seni Reog disebut sebagai...",
+          "answers": [
+            "Jathil","Warok"
+          ],
+          "answer":"Jathil"
+        },
+        {
+          "content": "Karakter/ciri khas dan jiwa masyarakat Ponorogo yang telah mendarah daging sejak dahulu yang diwariskan oleh nenek moyang kepada generasi penerus",
+          "answers": [
+            "Warok","Jathil"
+          ],
+          "answer":"Warok"
+        },
+        {
+          "content": "Peralatan tari yang paling dominan dalam kesenian Reog Ponorogo",
+          "answers": [
+            "Barongan","Krakap"
+          ],
+          "answer":"Barongan"
+        },
+        {
+          "content": "Seorang raja sakti mandraguna yang memiliki pusaka andalan berupa Cemeti",
+          "answers": [
+            "Klono Sewandono","Ganongan"
+          ],
+          "answer":"Klono Sewandono"
+        },
+        {
+          "content": "Dalam pertunjukan Reog ditampilkan topeng berbentuk kepala singa yang dikenal sebagai",
+          "answers": [
+            "Singa Barong","Jaran Kepang"
+          ],
+          "answer":"Singa Barong"
+        },
+        {
+          "content": "Tarian yang dibawakan oleh 6-8 gadis yang menaiki kuda dalam Reog",
+          "answers": [
+            "Jaran Kepang","Kuda Lumping"
+          ],
+          "answer":"Jaran Kepang"
+        },
+        {
+          "content": "Adegan terakhir dari pertunjukkan Reog",
+          "answers": [
+            "Singa Barong","Burung Merak"
+          ],
+          "answer":"Singa Barong"
+        },
+        {
+          "content": "Cara penari membawa topeng singa barong seberat 50-60 kg",
+          "answers": [
+            "Menggunakan Gigi","Menggunakan Tangan"
+          ],
+          "answer":"Menggunakan Gigi"
+        },
+        {
+          "content": "Tarian sejenis Reog Ponorogo yang ditarikan di Malaysia",
+          "answers": [
+            "Tari Barongan","Dadak Merak"
+          ],
+          "answer":"Tari Barongan"
+        },
+        {
+          "content": "Tokoh yang menggambarkan sosok seorang Patih Muda yang cekatan, berkemauan keras, cerdik, jenaka dan sakti dalam pertunjukkan Reog",
+          "answers": [
+            "Bujang Ganong","Klono Sewandono"
+          ],
+          "answer":"Bujang Ganong"
         }
       ]
     },
     {
       "level": 2,
+      "name": "Wayang",
+      "status": "playable",
       "questions": [
         {
-          "content": "Reog ponorogo",
+          "content": "Kata asal wayang yang berarti menuju kepada roh spiritual, dewa, atau Tuhan Yang Maha Esa",
           "answers": [
-            "",""
+            "Ma Hyang", "Mahabharata"
           ],
-          "answer":""
+          "answer":"Ma Hyang"
         },
         {
-          "content": "weew",
+          "content": "Seorang narator dialog tokoh-tokoh wayang",
           "answers": [
-            "",""
+            "Dalang", "Wayang"
           ],
-          "answer":""
+          "answer":"Dalang"
+        },
+        {
+          "content": "Layar tempat memainkan boneka wayang",
+          "answers": [
+            "Kelir", "Blencong"
+          ],
+          "answer":"Kelir"
+        },
+        {
+          "content": "Wanita yang bernyanyi mengiringi orkestra gamelan dalam pertunjukan wayang",
+          "answers": [
+            "Sinden", "Nayaga"
+          ],
+          "answer":"Sinden"
+        },
+        {
+          "content": "Ensembel musik yang biasanya menonjolkan metalofon, gambang, gendang, dan gong, yang biasanya ada dalam pertunjukkan wayang",
+          "answers": [
+            "Gamelan", "Angklung"
+          ],
+          "answer":"Gamelan"
+        },
+        {
+          "content": "Sekumpulan orang/sekelompok orang yang mempunyai keahlian khusus menabuh gamelan, terutama dalam megiringi Ki Dalang dalam pertunjukan wayang",
+          "answers": [
+            "Sinden", "Nayaga"
+          ],
+          "answer":"Nayaga"
+        },
+        {
+          "content": "Alat penerangan untuk pertunjukan wayang pada masa lampau yang menggunakan bahan bakar minyak kelapa",
+          "answers": [
+            "Kelir", "Blencong"
+          ],
+          "answer":"Blencong"
+        },
+        {
+          "content": "Sebuah cerita yang akan disajikan dalam pergelaran wayang",
+          "answers": [
+            "Lakon", "Serat"
+          ],
+          "answer":"Lakon"
+        },
+        {
+          "content": "Naskah yang secara umum diambil sebagai cerita wayang",
+          "answers": [
+            "Ma Hyang", "Mahabharata"
+          ],
+          "answer":"Mahabharata"
+        },
+        {
+          "content": "Cerita yang berasal dari Jawa periode klasik, tepatnya dari era Kerajaan Kadiri",
+          "answers": [
+            "Panji", "Sarag"
+          ],
+          "answer":"Panji"
+        },
+        {
+          "content": "Naskah yang secara umum diambil sebagai cerita wayang",
+          "answers": [
+            "Ramayana", "Ma Hyang"
+          ],
+          "answer":"Ramayana"
+        },
+        {
+          "content": "Tokoh wayang yang dikenal sebagai raja Dwarawati (Dwaraka), kerajaan para keturunan Yadu dan merupakan titisan Dewa Wisnu.",
+          "answers": [
+            "Kresna", "Rukmini"
+          ],
+          "answer":"Kresna"
         }
+      ]
+    },
+    {
+      "level": 3,
+      "name": "TBA",
+      "status": "build",
+      "questions": [
+
       ]
     }
   ]

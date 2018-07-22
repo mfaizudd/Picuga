@@ -19,6 +19,7 @@
         android:textSize="34sp" />
 
     <TextView
+        android:id="@+id/level_name_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
@@ -28,62 +29,34 @@
         android:textColor="@color/white"
         android:textSize="19sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="1">
-
-            <VideoView
-                android:id="@+id/video_info"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="8dp">
-
-            <Button
-                android:id="@+id/button_play"
-                android:layout_width="100dp"
-                android:layout_height="29dp"
-                android:background="@drawable/button_custom"
-                android:text="Play"
-                android:textColor="@color/white" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/info_puzzle_complete"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
             <TextView
                 android:id="@+id/text_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Description"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/info_puzzle_complete"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
-        </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
 
     </ScrollView>
 

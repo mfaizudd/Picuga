@@ -37,8 +37,7 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-light"
-        android:text="Score mu saat ini: 0"
-        android:textAllCaps="true"/>
+        android:text="Sayang sekali"/>
 
     <LinearLayout
         android:layout_width="match_parent"

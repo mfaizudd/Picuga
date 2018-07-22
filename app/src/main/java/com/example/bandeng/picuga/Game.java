@@ -39,17 +39,20 @@ public class Game extends AppCompatActivity {
 
     ImageView[] pzl;
     LinearLayout[] drop;
+    int[] healthIds;
     Button buttonBack;
     JSONObject questions;
     GlobalFunction gf;
-    TextView question;
+    TextView question, timerClock;
     Button buttonA, buttonB;
     ProgressBar timeLeft;
-    ImageView puzzlePreview;
+    ImageView puzzlePreview, healthBar;
     int level;
+    int levelReached;
     int questionId = 0;
     long startTime = 0;
     int time = 5;
+    int health = 3;
 
     SharedPreferences gamePref;
     final String SharedPrefFile = "com.example.bandeng.picuga";
@@ -61,18 +64,21 @@ public class Game extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         gf = new GlobalFunction(getApplicationContext());
+        gamePref = getSharedPreferences(SharedPrefFile, MODE_PRIVATE);
         timeLeft = findViewById(R.id.progressBar);
         puzzlePreview = findViewById(R.id.puzzle_complete_preview);
         startTime = System.currentTimeMillis();
         level = getIntent().getIntExtra("level",0);
+        levelReached = gamePref.getInt("LEVEL_REACHED", 0);
         questions = readJSON(R.raw.questions);
         question = findViewById(R.id.question_text);
         buttonA = findViewById(R.id.button_choice_a);
         buttonB = findViewById(R.id.button_choice_b);
+        timerClock = findViewById(R.id.timer_clock);
+        healthBar = findViewById(R.id.health_bar);
 
         timeLeft.setMax(time);
 
-        gamePref = getSharedPreferences(SharedPrefFile, MODE_PRIVATE);
         pzl = new ImageView[] {
                 findViewById(R.id.pzl_1),
                 findViewById(R.id.pzl_2),
@@ -122,6 +128,13 @@ public class Game extends AppCompatActivity {
                 findViewById(R.id.drop30),
         };
 
+        healthIds = new int[] {
+                R.drawable.health_0,
+                R.drawable.health_1,
+                R.drawable.health_2,
+                R.drawable.health_3
+        };
+
         int[] pzl_board;
         switch(gamePref.getInt("DIFFICULTY_TIME", 120)) {
             case 120:
@@ -160,7 +173,8 @@ public class Game extends AppCompatActivity {
                 finish();
             }
         });
-        loadQuestion();
+        questionId = new Random().nextInt(12);
+        loadQuestion(questionId);
         buttonA.setOnClickListener(choiceClickListener);
         buttonB.setOnClickListener(choiceClickListener);
 
@@ -177,25 +191,39 @@ public class Game extends AppCompatActivity {
         rootLayout.setOnDragListener(backgroundCatch);
 
         GlideApp.with(getApplicationContext()).load(Uri.parse(String.format(Locale.getDefault(), "file:///android_asset/puzzles/%d/pzl_complete.jpg", level+1))).into(puzzlePreview);
-
+        refreshHealth();
         timerHandler.postDelayed(timerRunnable, 0);
     }
+
+    boolean previewTime = true;
+    long millis;
 
     Handler timerHandler = new Handler();
     Runnable timerRunnable = new Runnable() {
         @Override
         public void run() {
-            long millis = System.currentTimeMillis() - startTime;
+            if(time>0) startTime = System.currentTimeMillis();
+            millis = System.currentTimeMillis() - startTime;
             int seconds = (int) (millis / 1000);
             int minutes = seconds / 60;
             seconds = seconds % 60;
-
-            time--;
-            if(time==0) {
+            timerClock.setText(String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds));
+            if(time==0 && previewTime) {
+                startTime = System.currentTimeMillis();
                 puzzlePreview.setVisibility(View.GONE);
+                timeLeft.setVisibility(View.GONE);
+                timerClock.setVisibility(View.VISIBLE);
+                question.setVisibility(View.VISIBLE);
+                buttonA.setVisibility(View.VISIBLE);
+                buttonB.setVisibility(View.VISIBLE);
+                healthBar.setVisibility(View.VISIBLE);
+                previewTime = false;
+            }
+            else {
+                time--;
+                timeLeft.setProgress(time);
             }
             timerHandler.postDelayed(this, 500);
-            timeLeft.setProgress(time);
         }
     };
 
@@ -214,9 +242,21 @@ public class Game extends AppCompatActivity {
                         .getJSONObject(questionId)
                         .getString("answer");
                 if (((Button)view).getText().toString().equals(answer)) {
-                    GlideApp.with(getApplicationContext()).load(Uri.parse(String.format(Locale.ENGLISH, "file:///android_asset/puzzles/1/pzl_%d.png",questionId+1))).into(pzl[questionId]);
-                    questionId = (questionId==questionCollection.length())?questionId:questionId+1;
-                    loadQuestion();
+                    GlideApp.with(getApplicationContext()).load(Uri.parse(String.format(Locale.ENGLISH, "file:///android_asset/puzzles/%d/pzl_%d.png",level+1, questionId+1))).into(pzl[questionId]);
+                    questionAnswered[questionId] = true;
+                    if(getTotalAnswered()>=12) {
+                        loadQuestion();
+                        return;
+                    }
+                    Random random = new Random();
+                    questionId = random.nextInt(12);
+                    while(questionAnswered[questionId]) {
+                        questionId = random.nextInt(12);
+                    }
+                    loadQuestion(questionId);
+                } else {
+                    health = (health==0) ? health : health-1;
+                    refreshHealth();
                 }
             } catch (JSONException ex) {
                 ex.printStackTrace();
@@ -224,7 +264,28 @@ public class Game extends AppCompatActivity {
         }
     };
 
-    void loadQuestion() {
+    void refreshHealth() {
+        if(health<1) {
+            Intent intent = new Intent(getApplicationContext(), LossActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        if(0<=health && health<=3) {
+            healthBar.setImageResource(healthIds[health]);
+        }
+    }
+
+    int getTotalAnswered() {
+        int total = 0;
+        for(boolean answered : questionAnswered) {
+            if(answered) total++;
+        }
+        return total;
+    }
+
+    boolean[] questionAnswered = new boolean[12];
+
+    void loadQuestion(int questionId) {
         try {
             String questionText = questions
                     .getJSONArray("quiz")
@@ -238,12 +299,21 @@ public class Game extends AppCompatActivity {
                     .getJSONArray("questions")
                     .getJSONObject(questionId)
                     .getJSONArray("answers");
+            Random random = new Random();
+            int randomNumber = random.nextInt(2);
+            int negatedRandomNumber = (randomNumber==1)?0:1;
             question.setText(questionText);
-            buttonA.setText(choices.getString(0));
-            buttonB.setText(choices.getString(1));
+            buttonA.setText(choices.getString(randomNumber));
+            buttonB.setText(choices.getString(negatedRandomNumber));
         } catch (JSONException ex) {
             ex.printStackTrace();
         }
+    }
+
+    void loadQuestion() {
+        question.setVisibility(View.GONE);
+        buttonA.setVisibility(View.GONE);
+        buttonB.setVisibility(View.GONE);
     }
 
     void changePieceLocatoin(ImageView piece, LinearLayout location) {
@@ -301,10 +371,16 @@ public class Game extends AppCompatActivity {
                 dragView.setVisibility(View.VISIBLE);
                 boolean win = checkWin(drop,pzl);
                 if(win) {
-                    SharedPreferences.Editor gamePrefEdit = gamePref.edit();
-                    gamePrefEdit.putInt("SCORE", score);
-                    gamePrefEdit.apply();
-                    startActivity(new Intent(getApplicationContext(), LevelCompleteActivity.class));
+                    if(level==levelReached) {
+                        SharedPreferences.Editor gamePrefEdit = gamePref.edit();
+                        gamePrefEdit.putInt("LEVEL_REACHED", level+1);
+                        gamePrefEdit.apply();
+                    }
+                    Intent intent = new Intent(getApplicationContext(), LevelCompleteActivity.class);
+                    intent.putExtra("SCORE", millis);
+                    intent.putExtra("LEVEL",level);
+                    startActivity(intent);
+                    finish();
                 }
             }
             return true;

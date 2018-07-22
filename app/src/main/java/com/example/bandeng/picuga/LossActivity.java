@@ -25,7 +25,6 @@ public class LossActivity extends AppCompatActivity {
         buttonBack = findViewById(R.id.button_back);
         gf = new GlobalFunction(getApplicationContext());
 
-        scoreTextView.setText(String.format(Locale.getDefault(), "Score mu saat ini: %d", gamePreferences.getInt("SCORE", 0)));
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

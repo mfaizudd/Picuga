@@ -14,17 +14,27 @@ import android.text.Layout;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
+
 import java.io.InputStream;
+import java.util.Locale;
 
 public class InfoActivity extends AppCompatActivity {
 
     SharedPreferences gamePreferences;
     GlobalFunction gf;
-    TextView textDescription;
+    TextView textDescription, levelNameView;
+    Button buttonBack;
+    ImageView puzzlePreview;
+    int level;
+    String levelName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,20 +43,15 @@ public class InfoActivity extends AppCompatActivity {
 
         gf = new GlobalFunction(getApplicationContext());
         gamePreferences = getSharedPreferences("com.example.bandeng.picuga", MODE_PRIVATE);
-        Button buttonStart = findViewById(R.id.button_play);
-        Button buttonBack = findViewById(R.id.button_back);
+        level = getIntent().getIntExtra("LEVEL", 0);
+        levelName = getIntent().getStringExtra("LEVEL_NAME");
+        buttonBack = findViewById(R.id.button_back);
         textDescription = findViewById(R.id.text_description);
-        final VideoView videoInfo = findViewById(R.id.video_info);
-        buttonStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                gf.playBubble();
-                ((LinearLayout)view.getParent()).setGravity(Gravity.CENTER);
-                Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.videoa);
-                videoInfo.setVideoURI(uri);
-                videoInfo.start();
-            }
-        });
+        puzzlePreview = findViewById(R.id.info_puzzle_complete);
+        levelNameView = findViewById(R.id.level_name_info);
+
+        levelNameView.setText(levelName);
+        GlideApp.with(getApplicationContext()).load(Uri.parse(String.format(Locale.getDefault(), "file:///android_asset/puzzles/%d/pzl_complete.jpg", level+1))).into(puzzlePreview);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +60,7 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
         try {
-            InputStream is = getAssets().open("reog.txt");
+            InputStream is = getAssets().open(String.format(Locale.getDefault(), "puzzles/%d/article.txt", level+1));
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -65,7 +70,7 @@ public class InfoActivity extends AppCompatActivity {
             }
         }
         catch(Exception ex) {
-            gf.showAlert(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 }
