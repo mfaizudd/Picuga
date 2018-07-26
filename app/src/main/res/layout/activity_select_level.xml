@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/neo_bg"
     tools:context=".SelectLevel">
 
     <TextView
@@ -27,7 +27,7 @@
         android:fontFamily="sans-serif-light"
         android:gravity="center"
         android:padding="16dp"
-        android:text="Pilih Level"
+        android:text="@string/pilih_level"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -52,8 +52,8 @@
         android:layout_width="100dp"
         android:layout_height="29dp"
         android:layout_margin="16dp"
-        android:background="@drawable/button_custom"
-        android:text="Kembali"
+        android:background="@drawable/neo_button"
+        android:text="@string/kembali"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/level_recycler"

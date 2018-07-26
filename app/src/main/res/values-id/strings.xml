@@ -1,12 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Picuga</string>
-    <string name="title_activity_main2" translatable="false">Main2Activity</string>
-    <string name="marginButtonLevel" translatable="false">8dp</string>
-    <string name="puzzle_piece" translatable="false">puzzle piece</string>
 
-    <string name="title_activity_splash_screen" translatable="false">SplashScreenActivity</string>
-    <string name="dummy_button" translatable="false">Dummy Button</string>
-    <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
     <string name="mengenal_indonesiaku">Mengenal indonesiaku</string>
     <string name="main">Main</string>
     <string name="pengaturan">Pengaturan</string>

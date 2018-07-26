@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/neo_bg"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="26dp"
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
-        android:text="Mengenal indonesiaku"
+        android:text="@string/mengenal_indonesiaku"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:layout_marginBottom="16dp"
@@ -35,9 +35,9 @@
         android:layout_width="match_parent"
         android:layout_height="67dp"
         android:layout_margin="16dp"
-        android:background="@drawable/button_custom"
+        android:background="@drawable/neo_button"
         android:fontFamily="sans-serif-light"
-        android:text="Main"
+        android:text="@string/main"
         android:textColor="@color/white"
         android:textSize="26sp" />
 
@@ -46,9 +46,9 @@
         android:layout_width="match_parent"
         android:layout_height="67dp"
         android:layout_margin="16dp"
-        android:background="@drawable/button_custom"
+        android:background="@drawable/neo_button"
         android:fontFamily="sans-serif-light"
-        android:text="Pengaturan"
+        android:text="@string/pengaturan"
         android:textColor="@color/white"
         android:textSize="26sp" />
 
@@ -56,9 +56,9 @@
         android:layout_width="match_parent"
         android:layout_height="67dp"
         android:layout_margin="16dp"
-        android:background="@drawable/button_custom"
+        android:background="@drawable/neo_button"
         android:fontFamily="sans-serif-light"
-        android:text="Keluar"
+        android:text="@string/keluar"
         android:onClick="exit"
         android:textColor="@color/white"
         android:textSize="26sp" />

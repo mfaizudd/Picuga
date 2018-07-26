@@ -16,6 +16,7 @@ public class Settings extends AppCompatActivity {
     SharedPreferences.Editor gamePreferencesEdit;
     MediaPlayer player;
     GlobalFunction gf;
+    String lang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class Settings extends AppCompatActivity {
 
         gf = new GlobalFunction(getApplicationContext());
         gamePreferences = getSharedPreferences("com.example.bandeng.picuga", MODE_PRIVATE);
+        lang = gamePreferences.getString("GAME_LANG", "in");
 
         Button backButton = (Button)findViewById(R.id.button_back);
         Button buttonAudioSettings = (Button)findViewById(R.id.button_audio_settings);
@@ -57,7 +59,16 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gf.playBubble();
+                startActivity(new Intent(Settings.this, LanguageSettingsActivity.class));
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(!lang.equals(gamePreferences.getString("GAME_LANG", "in"))) {
+            recreate();
+        }
     }
 }

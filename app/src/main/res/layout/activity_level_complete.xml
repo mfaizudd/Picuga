@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/neo_bg"
     android:orientation="vertical"
     tools:context="com.example.bandeng.picuga.LevelCompleteActivity">
 
@@ -25,7 +25,7 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-light"
-        android:text="Menang!"
+        android:text="@string/menang"
         android:textAllCaps="true"/>
 
     <TextView
@@ -68,7 +68,7 @@
             android:id="@+id/button_info"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:background="@drawable/level_button_n"
+            android:background="@drawable/neo_button"
             android:text="i"
             android:textSize="25sp"
             android:fontFamily="sans-serif-light"
@@ -81,8 +81,8 @@
         android:id="@+id/button_back"
         android:layout_width="100dp"
         android:layout_height="29dp"
-        android:background="@drawable/button_custom"
-        android:text="Kembali"
+        android:background="@drawable/neo_button"
+        android:text="@string/kembali"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-light"
         android:layout_margin="16dp"/>

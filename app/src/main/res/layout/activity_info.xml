@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/neo_bg"
     android:orientation="vertical"
     tools:context="com.example.bandeng.picuga.InfoActivity">
 
@@ -65,8 +65,8 @@
         android:layout_width="100dp"
         android:layout_height="29dp"
         android:layout_margin="16dp"
-        android:background="@drawable/button_custom"
-        android:text="Kembali"
+        android:background="@drawable/neo_button"
+        android:text="@string/kembali"
         android:textColor="@color/white" />
 
 </LinearLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/neo_bg"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="26dp"
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="Pengaturan"
+            android:text="@string/pengaturan"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:layout_marginBottom="16dp"
@@ -44,9 +44,9 @@
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:layout_margin="16dp"
-            android:background="@drawable/button_custom"
+            android:background="@drawable/neo_button"
             android:fontFamily="sans-serif-light"
-            android:text="Suara"
+            android:text="@string/suara"
             android:textColor="@color/white"
             android:textSize="26sp" />
 
@@ -55,9 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:layout_margin="16dp"
-            android:background="@drawable/button_custom"
+            android:background="@drawable/neo_button"
             android:fontFamily="sans-serif-light"
-            android:text="Grafis"
+            android:text="@string/grafis"
             android:textColor="@color/white"
             android:textSize="26sp" />
 
@@ -66,9 +66,9 @@
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:layout_margin="16dp"
-            android:background="@drawable/button_custom"
+            android:background="@drawable/neo_button"
             android:fontFamily="sans-serif-light"
-            android:text="Bahasa"
+            android:text="@string/bahasa"
             android:textColor="@color/white"
             android:textSize="26sp" />
     </LinearLayout>
@@ -78,9 +78,9 @@
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_margin="16dp"
-        android:background="@drawable/button_custom"
+        android:background="@drawable/neo_button"
         android:fontFamily="sans-serif-light"
-        android:text="Kembali"
+        android:text="@string/kembali"
         android:layout_gravity="left"
         android:textColor="@color/white" />
 

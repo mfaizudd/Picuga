@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/neo_bg"
     tools:context=".Game">
 
 
@@ -12,7 +14,6 @@
         android:id="@+id/title_puzzle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/titlePuzzle"
         android:fontFamily="sans-serif-light"
         android:padding="16dp"
         android:text="@string/app_name"
@@ -25,7 +26,6 @@
         android:id="@+id/title_level"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/titlePuzzle"
         android:fontFamily="sans-serif-light"
         android:gravity="center"
         android:padding="8dp"
@@ -41,7 +41,7 @@
         android:layout_height="32dp"
         android:layout_margin="8dp"
         android:layout_marginRight="8dp"
-        android:src="@drawable/clock"
+        android:src="@drawable/ic_access_time"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_level" />
 
@@ -71,483 +71,479 @@
         android:id="@+id/health_bar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:visibility="gone"
-        android:scaleType="fitEnd"
         android:padding="7dp"
+        android:scaleType="fitEnd"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/timer_icon"
         app:layout_constraintLeft_toRightOf="@id/timer_clock"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/timer_icon" />
 
-    <ScrollView
-        android:layout_width="0dp"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toTopOf="@id/button_back"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progressBar">
 
-        <android.support.constraint.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/puzzle_board"
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
+                    android:id="@+id/puzzle_board"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:gravity="center">
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
                     <LinearLayout
-                        android:id="@+id/drop1"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:gravity="center">
 
-                        <ImageView
-                            android:id="@+id/pzl_2"
+                        <LinearLayout
+                            android:id="@+id/drop1"
                             android:layout_width="50dp"
                             android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
-                    </LinearLayout>
+                            <ImageView
+                                android:id="@+id/pzl_2"
+                                android:layout_width="50dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
 
-                    <LinearLayout
-                        android:id="@+id/drop2"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        </LinearLayout>
 
-                        <ImageView
-                            android:id="@+id/pzl_5"
-                            android:layout_width="56dp"
+                        <LinearLayout
+                            android:id="@+id/drop2"
+                            android:layout_width="50dp"
                             android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
-                    </LinearLayout>
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:id="@+id/drop3"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                            <ImageView
+                                android:id="@+id/pzl_5"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+                        </LinearLayout>
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop4"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/pzl_4"
-                            android:layout_width="56dp"
+                        <LinearLayout
+                            android:id="@+id/drop3"
+                            android:layout_width="50dp"
                             android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop4"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/pzl_4"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop5"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/pzl_10"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop6"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/pzl_3"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/drop5"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:gravity="center">
 
-                        <ImageView
-                            android:id="@+id/pzl_10"
-                            android:layout_width="56dp"
+                        <LinearLayout
+                            android:id="@+id/drop7"
+                            android:layout_width="50dp"
                             android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop8"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop9"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop10"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop11"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop12"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/pzl_8"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/drop6"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:gravity="center">
 
-                        <ImageView
-                            android:id="@+id/pzl_3"
-                            android:layout_width="56dp"
+                        <LinearLayout
+                            android:id="@+id/drop13"
+                            android:layout_width="50dp"
                             android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/pzl_12"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop14"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop15"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop16"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop17"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop18"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/pzl_9"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:id="@+id/drop19"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/pzl_6"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop20"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop21"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop22"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop23"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:background="@color/darkerGray"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop24"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/pzl_11"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:id="@+id/drop25"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/pzl_1"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop26"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop27"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop28"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/pzl_7"
+                                android:layout_width="56dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="@string/puzzle_piece" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop29"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/drop30"
+                            android:layout_width="50dp"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/puzzle_complete_preview"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="16dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/puzzle_board"
+                    app:layout_constraintLeft_toLeftOf="@id/puzzle_board"
+                    app:layout_constraintRight_toRightOf="@id/puzzle_board"
+                    app:layout_constraintTop_toTopOf="@id/puzzle_board" />
+
+                <TextView
+                    android:id="@+id/question_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:gravity="center">
+                    android:padding="16dp"
+                    android:text="This is some question?"
+                    android:textColor="#000"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/puzzle_board" />
 
-                    <LinearLayout
-                        android:id="@+id/drop7"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop8"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop9"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop10"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop11"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop12"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/pzl_8"
-                            android:layout_width="56dp"
-                            android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/button_choice_a"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:gravity="center">
+                    android:layout_margin="16dp"
+                    android:background="@drawable/neo_button"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/button_choice_b"
+                    app:layout_constraintTop_toBottomOf="@id/question_text" />
 
-                    <LinearLayout
-                        android:id="@+id/drop13"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/pzl_12"
-                            android:layout_width="56dp"
-                            android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop14"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop15"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop16"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop17"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop18"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/pzl_9"
-                            android:layout_width="56dp"
-                            android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/button_choice_b"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:gravity="center">
+                    android:layout_margin="16dp"
+                    android:background="@drawable/neo_button"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/button_choice_a"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/question_text" />
 
-                    <LinearLayout
-                        android:id="@+id/drop19"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+            </android.support.constraint.ConstraintLayout>
 
-                        <ImageView
-                            android:id="@+id/pzl_6"
-                            android:layout_width="56dp"
-                            android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
-                    </LinearLayout>
+        </ScrollView>
 
-                    <LinearLayout
-                        android:id="@+id/drop20"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop21"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop22"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop23"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/darkerGray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop24"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/pzl_11"
-                            android:layout_width="56dp"
-                            android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:gravity="center">
-
-                    <LinearLayout
-                        android:id="@+id/drop25"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/pzl_1"
-                            android:layout_width="56dp"
-                            android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop26"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop27"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop28"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/pzl_7"
-                            android:layout_width="56dp"
-                            android:layout_height="38dp"
-                            android:contentDescription="@string/puzzle_piece" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop29"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/drop30"
-                        android:layout_width="50dp"
-                        android:layout_height="38dp"
-                        android:background="@color/gray"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/puzzle_complete_preview"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@id/puzzle_board"
-                app:layout_constraintLeft_toLeftOf="@id/puzzle_board"
-                app:layout_constraintRight_toRightOf="@id/puzzle_board"
-                app:layout_constraintTop_toTopOf="@id/puzzle_board" />
-
-            <TextView
-                android:id="@+id/question_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="This is some question?"
-                android:visibility="gone"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/puzzle_board" />
-
-            <Button
-                android:id="@+id/button_choice_a"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:visibility="gone"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/button_choice_b"
-                app:layout_constraintTop_toBottomOf="@id/question_text" />
-
-            <Button
-                android:id="@+id/button_choice_b"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:visibility="gone"
-                app:layout_constraintLeft_toRightOf="@id/button_choice_a"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/question_text" />
-
-        </android.support.constraint.ConstraintLayout>
-
-    </ScrollView>
+    </android.support.v7.widget.CardView>
 
     <Button
         android:id="@+id/button_back"
@@ -555,8 +551,9 @@
         android:layout_height="29dp"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
-        android:background="@drawable/button_black"
-        android:text="Kembali"
+        android:background="@drawable/neo_button"
+        android:text="@string/kembali"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 

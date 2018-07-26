@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,7 +52,7 @@ public class Game extends AppCompatActivity {
     int levelReached;
     int questionId = 0;
     long startTime = 0;
-    int time = 5;
+    int time = 300;
     int health = 3;
 
     SharedPreferences gamePref;
@@ -191,8 +192,9 @@ public class Game extends AppCompatActivity {
         rootLayout.setOnDragListener(backgroundCatch);
 
         GlideApp.with(getApplicationContext()).load(Uri.parse(String.format(Locale.getDefault(), "file:///android_asset/puzzles/%d/pzl_complete.jpg", level+1))).into(puzzlePreview);
+        puzzlePreview.setVisibility(View.VISIBLE);
         refreshHealth();
-        timerHandler.postDelayed(timerRunnable, 0);
+        timerHandler.postDelayed(timerRunnable, 1);
     }
 
     boolean previewTime = true;
@@ -223,7 +225,7 @@ public class Game extends AppCompatActivity {
                 time--;
                 timeLeft.setProgress(time);
             }
-            timerHandler.postDelayed(this, 500);
+            timerHandler.postDelayed(this, 1);
         }
     };
 

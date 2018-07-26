@@ -91,4 +91,13 @@ public class SelectLevel extends AppCompatActivity {
         }
         return result;
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        int newLevelReached = gamePreferences.getInt("LEVEL_REACHED", 0);
+        if(levelReached!=newLevelReached) {
+            recreate();
+        }
+    }
 }

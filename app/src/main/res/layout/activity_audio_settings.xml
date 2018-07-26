@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/neo_bg"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="26dp"
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="Pengaturan Audio"
+            android:text="@string/pengaturan_audio"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:layout_marginBottom="16dp"
@@ -46,7 +46,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:text="Musik"
+                android:text="@string/musik"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:layout_height="wrap_content" />
@@ -64,7 +64,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:text="Efek"
+                android:text="@string/efek"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:layout_height="wrap_content" />
@@ -82,7 +82,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:text="Tombol"
+                android:text="@string/tombol"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:layout_height="wrap_content" />
@@ -100,9 +100,9 @@
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_margin="16dp"
-        android:background="@drawable/button_custom"
+        android:background="@drawable/neo_button"
         android:fontFamily="sans-serif-light"
-        android:text="Kembali"
+        android:text="@string/kembali"
         android:layout_gravity="left"
         android:textColor="@color/white" />
 

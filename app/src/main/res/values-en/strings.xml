@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mengenal_indonesiaku">Get to know Indonesia</string>
+    <string name="main">Play</string>
+    <string name="pengaturan">Settings</string>
+    <string name="keluar">Exit</string>
+    <string name="kembali">Back</string>
+    <string name="suara">Sound</string>
+    <string name="grafis">Graphics</string>
+    <string name="bahasa">Language</string>
+    <string name="kalah">Lose</string>
+    <string name="sayang_sekali">Too bad!</string>
+    <string name="menang">Win</string>
+    <string name="musik">Music</string>
+    <string name="pengaturan_audio">Audio Settings</string>
+    <string name="efek">Effect</string>
+    <string name="tombol">Button</string>
+    <string name="logo">Logo</string>
+    <string name="pilih_level">Select Level</string>
+</resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/neo_bg"
+    android:padding="26dp"
+    tools:context="com.example.bandeng.picuga.LanguageSettingsActivity">
+
+    <TextView
+        android:id="@+id/language_settings_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="56sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/language_settings_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/pengaturan"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/language_settings_title" />
+
+    <Button
+        android:id="@+id/language_indonesia"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/neo_button"
+        android:fontFamily="sans-serif-light"
+        android:text="Bahasa Indonesia"
+        android:textSize="26sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/language_settings_description" />
+
+    <Button
+        android:id="@+id/language_english"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/neo_button"
+        android:fontFamily="sans-serif-light"
+        android:text="ENGLISH"
+        android:textSize="26sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/language_indonesia" />
+
+    <Button
+        android:id="@+id/language_settings_back"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/neo_button"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/kembali"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

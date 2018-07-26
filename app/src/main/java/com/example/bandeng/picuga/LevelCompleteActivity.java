@@ -61,7 +61,6 @@ public class LevelCompleteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gf.playBubble();
-                startActivity(new Intent(LevelCompleteActivity.this, SelectLevel.class));
                 finish();
             }
         });

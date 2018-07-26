@@ -2,11 +2,13 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#303F9F</color>
     <color name="transparent">#21999999</color>
     <color name="white">#fff</color>
     <color name="puzzleColor">#2979ff</color>
     <color name="titlePuzzle">#579bfe</color>
-    <color name="gray">#eeeeee</color>
-    <color name="darkerGray">#bdbdbd</color>
+    <color name="gray">#07ffffff</color>
+    <color name="darkerGray">#28000000</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

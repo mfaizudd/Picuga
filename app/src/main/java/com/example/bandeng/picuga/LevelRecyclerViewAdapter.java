@@ -48,11 +48,10 @@ public class LevelRecyclerViewAdapter extends RecyclerView.Adapter<LevelRecycler
                     Intent intent = new Intent(context, Game.class);
                     intent.putExtra("level", Integer.parseInt(holder.button.getText().toString()) - 1);
                     context.startActivity(intent);
-                    ((Activity)context).finish();
                 }
             });
         } else if(item.getStatus().equals("locked")) {
-            holder.button.setBackground(context.getResources().getDrawable(R.drawable.level_button_default));
+            holder.button.setBackground(context.getResources().getDrawable(R.drawable.neo_button_lock));
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -60,7 +59,7 @@ public class LevelRecyclerViewAdapter extends RecyclerView.Adapter<LevelRecycler
                 }
             });
         } else if(item.getStatus().equals("build")) {
-            holder.button.setBackground(context.getResources().getDrawable(R.drawable.level_button_default));
+            holder.button.setBackground(context.getResources().getDrawable(R.drawable.neo_button_lock));
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
